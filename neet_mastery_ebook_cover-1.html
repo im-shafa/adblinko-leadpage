@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The NEET Mastery E-Book</title>
+  <meta name="description"
+    content="A 60-page science-backed guide that changes how you study, what you remember, and how you perform on exam day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════
+   RESET & ROOT
+══════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --ink: #0A0A0F;
+      --ink2: #111118;
+      --ink3: #1A1A24;
+      --paper: #F2EDE4;
+      --paper2: #E8E1D5;
+      --cream: #F9F5EF;
+      --gold: #B8862A;
+      --gold2: #D4A843;
+      --gold3: #E8C06A;
+      --red: #C0392B;
+      --text: #0A0A0F;
+      --muted: #6B6459;
+      --muted2: #9A8E82;
+      --border: rgba(10, 10, 15, 0.10);
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════
+   TEXTURE OVERLAY
+══════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ══════════════════════════════════════
+   ANNOUNCEMENT BAR
+══════════════════════════════════════ */
+    .ann {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      padding: .6rem 1rem;
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 100;
+    }
+
+    .ann span {
+      color: var(--gold3)
+    }
+
+    /* ══════════════════════════════════════
+   NAV
+══════════════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(249, 245, 239, 0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+
+    .nav-logo span {
+      color: var(--gold)
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 1rem;
+      align-items: center
+    }
+
+    .nav-link {
+      font-family: 'Syne', sans-serif;
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-link:hover {
+      color: var(--gold)
+    }
+
+    .nav-btn {
+      font-family: 'Syne', sans-serif;
+      font-size: .74rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+      padding: .55rem 1.3rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--gold)
+    }
+
+    /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--ink);
+      padding: 6rem 4rem 5rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right {
+      background: var(--paper);
+      padding: 6rem 4rem 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* Centers the image */
+      border-left: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold2);
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.06;
+      color: var(--paper);
+      margin-bottom: 1.8rem;
+      letter-spacing: -.01em;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold3);
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(242, 237, 228, .65);
+      line-height: 1.75;
+      margin-bottom: 2.8rem;
+      max-width: 420px;
+      font-style: italic;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      max-width: 340px
+    }
+
+    .btn-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.5rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Syne', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background .2s, transform .15s;
+      width: 100%;
+    }
+
+    .btn-main:hover {
+      background: var(--gold2);
+      transform: translateY(-1px)
+    }
+
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      padding: .9rem 1.5rem;
+      background: transparent;
+      color: rgba(242, 237, 228, .7);
+      font-family: 'Syne', sans-serif;
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(242, 237, 228, .2);
+      border-radius: 4px;
+      transition: border-color .2s, color .2s;
+      width: 100%;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(242, 237, 228, .5);
+      color: var(--paper)
+    }
+
+    /* ══════════════════════════════════════
+   SHARED SECTION STYLES
+══════════════════════════════════════ */
+    .section {
+      padding: 6rem 5rem
+    }
+
+    .eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold)
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      margin-bottom: 1rem;
+    }
+
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0
+    }
+
+    /* ══════════════════════════════════════
+   STORY SECTION
+══════════════════════════════════════ */
+    .story-section {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 7rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .story-meta {
+      position: sticky;
+      top: 8rem;
+      align-self: start
+    }
+
+    .story-meta-date {
+      font-family: 'Syne', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold2);
+      margin-bottom: 1rem;
+    }
+
+    .story-meta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .story-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
+    .story-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 1.4rem;
+    }
+
+    .story-break {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.45;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+
+    .story-section.light-mode .story-break {
+      border-color: rgba(0, 0, 0, .1);
+    }
+
+    /* ══════════════════════════════════════
+   WHAT'S INSIDE
+══════════════════════════════════════ */
+    .inside-section {
+      background: var(--cream);
+      padding: 7rem 5rem
+    }
+
+    .inside-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .inside-card {
+      background: var(--cream);
+      padding: 2.5rem;
+      transition: background .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inside-card:hover {
+      background: var(--paper)
+    }
+
+    .card-ch {
+      font-family: 'Syne', sans-serif;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .inside-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: .8rem;
+    }
+
+    .inside-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    /* TOC List */
+    .toc-list {
+      max-width: 1080px;
+      margin: 4rem auto 0;
+      padding: 3rem;
+      background: var(--paper2);
+      border: 1px solid var(--border);
+    }
+
+    .toc-list h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toc-list ul {
+      list-style: none;
+    }
+
+    .toc-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+    }
+
+    .toc-list li:last-child {
+      border-bottom: none;
+    }
+
+    .toc-list li strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+   WHO IT'S FOR TABLE
+══════════════════════════════════════ */
+    .who-section {
+      background: var(--ink2);
+      padding: 6rem 5rem
+    }
+
+    .who-table {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .who-col {
+      background: var(--ink2);
+      padding: 0
+    }
+
+    .who-col-head {
+      padding: 1.4rem 2rem;
+      font-family: 'Syne', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .who-col-head.yes {
+      color: var(--gold2)
+    }
+
+    .who-col-head.no {
+      color: rgba(242, 237, 228, .3)
+    }
+
+    .who-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      font-size: .9rem;
+      color: rgba(242, 237, 228, .7);
+      line-height: 1.6;
+    }
+
+    .who-item:last-child {
+      border-bottom: none
+    }
+
+    .who-item .wi {
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: .2rem
+    }
+
+    /* ══════════════════════════════════════
+   PRICING
+══════════════════════════════════════ */
+    .pricing-section {
+      background: var(--cream);
+      padding: 7rem 5rem;
+      text-align: center;
+    }
+
+    .pricing-card {
+      background: var(--ink);
+      color: var(--paper);
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 3.5rem 3rem;
+      position: relative;
+      border: 1px solid rgba(184, 134, 42, .25);
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 5%, var(--gold) 50%, transparent 95%);
+    }
+
+    .price-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: rgba(242, 237, 228, .55);
+      margin-bottom: .5rem;
+      font-style: italic;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: .85rem;
+      margin-bottom: .4rem;
+    }
+
+    .price-curr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1;
+    }
+
+    .price-orig {
+      font-size: 1.2rem;
+      color: rgba(242, 237, 228, .3);
+      text-decoration: line-through;
+    }
+
+    .rp-zone {
+      margin: 3rem 0 0;
+      position: relative;
+      z-index: 2
+    }
+
+    .rp-zone .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1.2rem 1.8rem;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Syne', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .rp-zone .btn-buy:hover {
+      background: var(--gold2)
+    }
+
+    /* ══════════════════════════════════════
+   GUARANTEE FULL SECTION
+══════════════════════════════════════ */
+    .oath-section {
+      background: var(--ink);
+      padding: 6rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oath-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .oath-icon {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .oath-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--paper);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .oath-inner p {
+      font-size: .97rem;
+      color: rgba(242, 237, 228, .6);
+      line-height: 1.85;
+      margin-bottom: 1.3rem;
+    }
+
+    .oath-highlight {
+      border: 1px solid rgba(184, 134, 42, .25);
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: left;
+      background: rgba(184, 134, 42, 0.05);
+    }
+
+    .oath-highlight p {
+      font-size: .9rem;
+      color: rgba(242, 237, 228, .7);
+      margin-bottom: 0;
+    }
+
+    .oath-highlight p strong {
+      color: var(--gold3)
+    }
+
+    /* ══════════════════════════════════════
+   TWO OPTIONS
+══════════════════════════════════════ */
+    .options-section {
+      background: var(--paper2);
+      padding: 6rem 5rem
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .option-card {
+      background: var(--paper2);
+      padding: 3rem 2.5rem
+    }
+
+    .option-card.option-bad {
+      opacity: .75
+    }
+
+    .option-card.option-good {
+      background: var(--cream)
+    }
+
+    .option-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .option-card.option-good .option-num {
+      color: var(--gold)
+    }
+
+    .option-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .option-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════
+   STICKY BAR
+══════════════════════════════════════ */
+    .sticky {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ink2);
+      border-top: 1px solid rgba(184, 134, 42, .2);
+      padding: 1rem 2rem;
+      z-index: 500;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .sticky-text strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--paper);
+      display: block;
+      line-height: 1;
+      margin-bottom: .15rem;
+    }
+
+    .sticky-text span {
+      font-family: 'Syne', sans-serif;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(242, 237, 228, .35);
+    }
+
+    .sticky .btn-main {
+      width: auto;
+      min-width: 200px
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto
+      }
+
+      .hero-left {
+        padding: 4rem 2rem 3rem
+      }
+
+      .hero-right {
+        padding: 3rem 2rem 4rem;
+        border-left: none;
+        border-top: 1px solid var(--border)
+      }
+
+      .story-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem
+      }
+
+      .story-meta {
+        position: static
+      }
+
+      .inside-grid {
+        grid-template-columns: 1fr
+      }
+
+      .who-table {
+        grid-template-columns: 1fr
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr
+      }
+
+      .toc-list {
+        padding: 2rem 1rem;
+      }
+
+      .toc-list li {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      section.section,
+      .story-section,
+      .inside-section,
+      .who-section,
+      .pricing-section,
+      .oath-section,
+      .options-section {
+        padding: 4rem 1.5rem
+      }
+
+      nav {
+        padding: .9rem 1.2rem
+      }
+
+      .nav-link {
+        display: none
+      }
+
+      .sticky {
+        display: flex
+      }
+
+      body {
+        padding-bottom: 80px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="ann">
+    <span>Read Chapter 1 Free</span> — Decide For Yourself
+  </div>
+
+  <nav>
+    <a href="#" class="nav-logo">NEET<span>Mastery</span></a>
+    <div class="nav-right">
+      <a href="https://drive.google.com/file/d/1p3rFGwusf12QQZbPsiaC1RQSImr0PyAG/view?usp=drivesdk" target="_blank"
+        class="nav-link">Free Chapter</a>
+      <a href="#pricing" class="nav-btn">Get the Book</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">The NEET Mastery E-Book</div>
+      <h1>I Failed NEET Twice.<br>Then I Spent<br>4 Months<br><em>Searching Why.</em></h1>
+      <p class="hero-sub">What I discovered will change how you prepare forever. A 60-page guide to science-backed
+        focus, deep memory, and scoring higher.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn-main">
+          Get Instant Access — ₹299 <span class="arrow">→</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1p3rFGwusf12QQZbPsiaC1RQSImr0PyAG/view?usp=drivesdk" target="_blank"
+          class="btn-secondary">
+          Read Chapter 1 Free
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="../IMG_20260525_150226.png" alt="The NEET Mastery Ebook Cover"
+        style="max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3); max-height: 70vh; object-fit: contain;">
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="story-section light-mode" style="background:var(--paper); color:var(--ink);">
+    <div class="story-inner">
+      <div class="story-meta">
+        <p class="story-meta-date" style="color:var(--muted)">The Illusion</p>
+        <h3 style="color:var(--ink)">3 March 2024. 5:00 AM.</h3>
+        <p style="color:var(--muted)">The exam was in two months. This was my second attempt at NEET, and I had already
+          decided something: This would be my last.</p>
+      </div>
+      <div class="story-text">
+        <h3 style="color:var(--ink)">"I was sitting at my desk staring at the wall."</h3>
+        <p style="color:var(--ink)">The day before, I spent 16 hours studying electrostatics. Not the first time. Not
+          even the second. I already had detailed notes, so I didn't write anything new—I just watched the video
+          lectures carefully and tried to remember everything.</p>
+        <p style="color:var(--ink)">After the lectures, I wrote out the formulas. Again and again. Derivations,
+          constants, equations. I wrote them until it felt burned into my brain. Then I solved PYQs alongside solution
+          videos.</p>
+        <div class="story-break" style="color:var(--ink)">"By the end of the day, I felt completely satisfied. For once,
+          it felt like I was doing things properly. Like maybe this time it would finally work."</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section">
+    <div class="story-inner">
+      <div class="story-meta">
+        <p class="story-meta-date">The Crash</p>
+        <h3 style="color:var(--paper)">4 May 2024.</h3>
+        <p style="color:rgba(242,237,228,.72)">I was sitting in the exam hall, pen in hand. Outside, my mother was
+          waiting in the heat. She had seen how hard I worked this time. She believed today would be different.</p>
+      </div>
+      <div class="story-text">
+        <h3 style="color:var(--paper)">The paper started. I turned the page. And there it was: a question from
+          electrostatics.</h3>
+        <p style="color:rgba(242,237,228,.72)">I read it. Then I read it again. It felt so familiar. I knew I had seen
+          something just like this. I sat there trying to force my brain to remember the lectures, the notes, the
+          formulas I had written dozens of times.</p>
+        <div class="story-break">"But nothing came. No formula. No method. Just a strange, sickening feeling of
+          familiarity. Like seeing someone’s face but not remembering their name."</div>
+        <p style="color:rgba(242,237,228,.72)">With every question I couldn’t solve, something inside me started fading.
+          Confidence. Hope. One blank bubble on the OMR sheet at a time.</p>
+        <p style="color:rgba(242,237,228,.72)">And that’s when something terrifying hit me: <strong>I didn’t fail
+            because I didn’t study hard. I failed because I didn’t know how to learn.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section" style="background:var(--ink2); padding-top:4rem;">
+    <div class="story-inner">
+      <div class="story-meta">
+        <p class="story-meta-date">The Discovery</p>
+        <h3 style="color:var(--paper)">Refusing to let it go.</h3>
+        <p style="color:rgba(242,237,228,.72)">I was so frustrated, almost depressed. Those early mornings, late nights,
+          dozens of books filled with notes, hours spent watching lectures—and worst of all, failing my parents' hopes.
+        </p>
+      </div>
+      <div class="story-text">
+        <h3 style="color:var(--paper)">I decided to really understand why I failed.</h3>
+        <p style="color:rgba(242,237,228,.72)">What did the toppers do differently? I put in the hours, so there had to
+          be something else. I searched everywhere. I watched topper interviews, read books, articles, and cognitive
+          research papers to understand exactly how the human brain retains information.</p>
+        <p style="color:rgba(242,237,228,.72)">The answers were clear as the night sky. And they made me realize that
+          everything we consider "right"—reading, re-reading, highlighting, and solving the exact same types of
+          questions until we perfect them—is actually a complete waste of time.</p>
+        <p style="color:rgba(242,237,228,.72)"><strong>It creates a false sense of mastery. It makes things look
+            familiar, but it doesn't build long-term memory.</strong></p>
+        <p style="color:rgba(242,237,228,.72)">I wished someone had actually taught me the right way to study before I
+          even picked up my biology book. Since nobody did, I decided to build it myself. Something short and sweet that
+          you can finish in 2 hours, but will change how you prepare forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="inside-section">
+    <div style="max-width:1080px;margin:0 auto">
+      <div class="eyebrow">The Blueprint</div>
+      <h2 style="margin-bottom:2.5rem">What You Will Master Inside.</h2>
+      <div class="inside-grid">
+        <div class="inside-card">
+          <span class="card-ch">Core Concept</span>
+          <h3>Why You Forget</h3>
+          <p>Understand why re-reading and highlighting feel productive but completely fail you during the actual exam.
+          </p>
+        </div>
+        <div class="inside-card">
+          <span class="card-ch">Protocol 01</span>
+          <h3>Active Recall</h3>
+          <p>Learn how to retrieve information from memory instead of passively reviewing notes, making concepts hit
+            your pen instantly under stress.</p>
+        </div>
+        <div class="inside-card">
+          <span class="card-ch">Protocol 02</span>
+          <h3>Spaced Repetition</h3>
+          <p>Review information at the exact scientific intervals so your brain remembers it for weeks instead of days.
+          </p>
+        </div>
+        <div class="inside-card">
+          <span class="card-ch">Protocol 03</span>
+          <h3>Interleaving</h3>
+          <p>Train your brain to distinguish between different types of problems and choose the right approach when
+            chapters are mixed together.</p>
+        </div>
+        <div class="inside-card">
+          <span class="card-ch">Framework</span>
+          <h3>The 5 Laws of Learning</h3>
+          <p>Master the core principles of Elaboration, Generation, Reflection, Calibration, and Retrieval.</p>
+        </div>
+        <div class="inside-card">
+          <span class="card-ch">System</span>
+          <h3>The Biology Mnemonics Matrix</h3>
+          <p>Use linking, chunking, and memory palaces to store massive biological classifications and metabolic
+            pathways without endless repetition.</p>
+        </div>
+        <div class="inside-card" style="grid-column: 1 / -1; text-align: center;">
+          <span class="card-ch" style="margin: 0 auto 1rem;">Execution</span>
+          <h3>Deep Work & Time-Boxing</h3>
+          <p style="max-width: 600px; margin: 0 auto;">How to eliminate phone distractions, destroy procrastination, and
+            build high-intensity study sessions.</p>
+        </div>
+      </div>
+
+      <div class="toc-list">
+        <h3>The Lean Table of Contents</h3>
+        <ul>
+          <li><strong>Chapter 1:</strong> The Day I Realized Studying Hard Wasn’t the Problem</li>
+          <li><strong>Chapter 2:</strong> The Five Hidden Laws That Control How Your Brain Learns</li>
+          <li><strong>Chapter 3:</strong> The Stupid Trick That Will Improve Your Learning Forever</li>
+          <li><strong>Chapter 4:</strong> Memory Mastery — How to Remember Massive Amounts of Information Without
+            Re-reading</li>
+          <li><strong>Chapter 5:</strong> The Technique That Reveals What You Actually Understand</li>
+          <li><strong>Chapter 6:</strong> Why Your Brain Refuses to Focus (And How to Fix It)</li>
+          <li><strong>Chapter 7:</strong> How to Study With Intensity Instead of Just Studying Longer</li>
+          <li><strong>Chapter 8:</strong> The Conclusion — Everything You Need to Know About Learning (And Nothing More)
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-section">
+    <div style="max-width:1080px;margin:0 auto">
+      <div class="eyebrow" style="color:var(--gold2)"><span style="background:var(--gold2)"></span>Clarity</div>
+      <h2 style="color:var(--paper);margin-bottom:2.5rem">Who This Is For (And Who It Is NOT For)</h2>
+      <div class="who-table">
+        <div class="who-col">
+          <div class="who-col-head yes">This guide is for you if:</div>
+          <div class="who-item"><span class="wi">✦</span> You study for hours but forget everything during exams.</div>
+          <div class="who-item"><span class="wi">✦</span> You re-read notes but still struggle to recall information.
+          </div>
+          <div class="who-item"><span class="wi">✦</span> You feel like toppers know a secret system you don’t.</div>
+          <div class="who-item"><span class="wi">✦</span> You want to drastically improve your score without just piling
+            on more lazy hours.</div>
+        </div>
+        <div class="who-col" style="border-left:1px solid rgba(255,255,255,.06)">
+          <div class="who-col-head no">This guide is NOT for you if:</div>
+          <div class="who-item"><span class="wi" style="color:rgba(242,237,228,.2)">—</span> You are looking for magical
+            shortcuts without studying.</div>
+          <div class="who-item"><span class="wi" style="color:rgba(242,237,228,.2)">—</span> You don't want to change
+            your current study habits.</div>
+          <div class="who-item"><span class="wi" style="color:rgba(242,237,228,.2)">—</span> You believe passive
+            revision and highlighting are enough.</div>
+          <div class="who-item"><span class="wi" style="color:rgba(242,237,228,.2)">—</span> You just want blind
+            motivation without taking action.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <div class="eyebrow" style="justify-content:center">The Price of Mastery</div>
+    <h2 style="margin-bottom:1.5rem">Less than a single meal.</h2>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:3rem;max-width:600px;margin-inline:auto;">Coaching
+      institutes charge tens of thousands of rupees. Online courses cost even more. But the principles that control how
+      your brain actually learns should not be expensive.</p>
+
+    <div class="pricing-card">
+      <p class="price-title">The Complete Digital Guide</p>
+      <div class="price-row">
+        <span class="price-curr">₹299</span>
+        <span class="price-orig">₹749</span>
+      </div>
+
+      <div class="rp-zone">
+        <form>
+          <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_StczP3z7aGcI7O"
+            async>
+            </script>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="oath-section">
+    <div class="oath-inner">
+      <span class="oath-icon">🛡️</span>
+      <h2>The Blood-Oath Guarantee.</h2>
+      <p>I do not want your money if this does not change your life. Period.</p>
+      <div class="oath-highlight">
+        <p><strong>Here is the deal:</strong> Buy the blueprint. Read it tonight. Apply the high-friction learning
+          protocols honestly for just <strong>14 days</strong>. If your memory doesn't feel sharper, if your focus
+          doesn't double, and if your mock test scores don't show a visible upward trajectory—send a single email to
+          <strong>adblinko@gmail.com</strong> showing me your study logs demonstrating that you genuinely applied the
+          techniques.</p>
+        <br>
+        <p>I will refund every single rupee. No automated chat bots. No passive-aggressive customer support. Just a
+          clean, respectful refund.</p>
+      </div>
+      <p>If it doesn’t give you an elite advantage, you shouldn’t pay a single paisa for it.</p>
+    </div>
+  </section>
+
+  <section class="options-section">
+    <div style="max-width:1080px;margin:0 auto">
+      <div class="eyebrow">The Crossroad</div>
+      <h2 style="margin-bottom:2.5rem">Right Now, You Have Two Options.</h2>
+      <div class="options-grid">
+        <div class="option-card option-bad">
+          <div class="option-num">01</div>
+          <h3>Keep hoping for a miracle.</h3>
+          <p>You can keep studying the way most students do. Re-reading notes, watching endless lectures, and hoping
+            things stick. You can keep chasing the comfort of passive learning and pray that on exam day, a miracle
+            happens.</p>
+        </div>
+        <div class="option-card option-good">
+          <div class="option-num">02</div>
+          <h3>Invest ₹299 and break the loop.</h3>
+          <p>You invest ₹299. You read the first chapter for free if you are hesitant. You look the truth in the eye,
+            break your bad habits, and learn how your brain actually functions. If you are serious about changing your
+            trajectory for NEET 2026, get the guide and start tonight.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 5rem;">
+        <a href="#pricing" class="btn-main" style="max-width: 400px; margin: 0 auto; justify-content: center;">
+          FIX YOUR STUDY ROUTINE — ₹299
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky" id="sticky">
+    <div class="sticky-text">
+      <strong>NEET Mastery Ebook</strong>
+      <span>₹299 &nbsp;·&nbsp; Instant download</span>
+    </div>
+    <a href="#pricing" class="btn-main">Get Access &nbsp;→</a>
+  </div>
+
+  <script>
+    const heroEl = document.querySelector('.hero');
+    const stickyEl = document.getElementById('sticky');
+    if (heroEl && stickyEl) {
+      const sObs = new IntersectionObserver(entries => {
+        stickyEl.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+      }, { threshold: 0 });
+      sObs.observe(heroEl);
+    }
+  </script>
+</body>
+
+</html>
